@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import './App.css'
-import { useDispatch } from "react-redux";
-import { Route, Switch } from "react-router-dom";
-import LoginFormPage from "./components/LoginFormPage";
-import SignupFormPage from "./components/SignupFormPage";
-import * as sessionActions from "./store/session"
+import { useDispatch, useSelector } from "react-redux";
+import { Route, Switch, Redirect } from "react-router-dom"; // Import Redirect
+import * as sessionActions from "./store/session";
 import Navigation from './components/Navigation';
+import LandingPage from './components/LandingPage';
+import Dashbored from './components/Dashbored';
 
 function App() {
   const dispatch = useDispatch();
+  const sessionUser = useSelector(state => state.session.user);
   const [isLoaded, setIsLoaded] = useState(false);
+
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
@@ -19,12 +20,13 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
-          <Route path="/login">
-            <LoginFormPage />
+          <Route exact path='/'>
+            <LandingPage />
           </Route>
-          <Route path="/signup">
-            <SignupFormPage />
+          <Route path='/dashboard'>
+            {sessionUser ? <Dashbored /> : <Redirect to="/" />}
           </Route>
+         
         </Switch>
       )}
     </>
