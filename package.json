@@ -13,13 +13,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/JacobArrington/flipsight.git"
+    "url": "git+https://github.com/JacobArrington/Express-Starter.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/JacobArrington/flipsight/issues"
+    "url": "https://github.com/JacobArrington/Express-Starter/issues"
   },
-  "homepage": "https://github.com/JacobArrington/flipsight#readme"
+  "homepage": "https://github.com/JacobArrington/Express-Starter#readme"
 }
