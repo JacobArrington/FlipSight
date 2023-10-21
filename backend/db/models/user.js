@@ -31,6 +31,7 @@ module.exports = (sequelize, DataTypes) => {
       if (user && user.validatePassword(password)) {
         return await User.scope('currentUser').findByPk(user.id);
       }
+      
     }
     static async signup({ firstName, lastName,username, email, password }) {
       const hashedPassword = bcrypt.hashSync(password);
@@ -43,7 +44,17 @@ module.exports = (sequelize, DataTypes) => {
       });
       return await User.scope('currentUser').findByPk(user.id);
     }
- 
+    static associate(models) {
+      // User has many Items
+      User.hasMany(models.Item, { foreignKey: 'userId' });
+
+      // User has many ItemComparisons
+      User.hasMany(models.ItemComparisons, { foreignKey: 'userId' });
+
+     User.hasOne(models.UserPrefs, {foreignKey: 'userId'})
+    }
+    
+  
     
   }
   User.init({
