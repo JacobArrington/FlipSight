@@ -1,4 +1,3 @@
-const { User, ItemCondition, ListingType, ItemComparisons, ComparisonItems } = require('./models');
 
 'use strict';
 const {
