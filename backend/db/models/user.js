@@ -51,7 +51,7 @@ module.exports = (sequelize, DataTypes) => {
       // User has many ItemComparisons
       User.hasMany(models.ItemComparison, { foreignKey: 'userId' });
 
-     User.hasOne(models.UserPrefs, {foreignKey: 'userId'})
+     User.hasOne(models.UserPref, {foreignKey: 'userId'})
     }
     
   
