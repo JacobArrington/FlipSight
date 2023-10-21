@@ -10,7 +10,14 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      ComparisonItem.belongsTo(models.ItemComparison,{
+        foreignKey: 'comparisonId',
+        onDelete: 'CASCADE'
+      })
+      ComparisonItem.belongsTo(models.Item,{
+        foreignKey: 'comparisonId',
+        onDelete: 'CASCADE'
+      })
     }
   }
   ComparisonItem.init({
