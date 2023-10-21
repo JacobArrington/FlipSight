@@ -11,13 +11,14 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-   Item.belongsTo(models.User, {foreignKey: 'userId'})
-   Item.belongsTo(models.ItemCondition, {foreignKey: 'conditionId'})
-   Item.belongsTo(models.ListingType,{foreignKey: 'listingTypeId'})
-   Item.belongsToMany(models.ItemComparisons,{
-    through: models.ComparisonItems,
-    foreignKey: 'itemId'
-   })
+      Item.belongsTo(models.User, { foreignKey: 'userId' });
+      Item.belongsTo(models.ItemCondition, { foreignKey: 'conditionId' });
+      Item.belongsTo(models.ListingType, { foreignKey: 'listingTypeId' });
+      Item.belongsToMany(models.ItemComparison, {
+        through: models.ComparisonItem,
+        foreignKey: 'itemId'
+      });
+    
     }
   }
   Item.init({

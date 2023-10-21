@@ -13,11 +13,11 @@ module.exports = (sequelize, DataTypes) => {
       ItemComparison.belongsTo(models.User, {
         foreignKey: 'userId',
         onDelete: 'CASCADE'
-      })
-      ItemComparison.hasMany(models.ComparisonItem,{
+      });
+      ItemComparison.hasMany(models.ComparisonItem, {
         foreignKey: 'comparisonId',
-        as: 'compaisonItem'
-      })
+        as: 'compairsonItem'
+      });
     }
   }
   ItemComparison.init({

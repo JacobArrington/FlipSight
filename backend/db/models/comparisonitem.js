@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
         onDelete: 'CASCADE'
       })
       ComparisonItem.belongsTo(models.Item,{
-        foreignKey: 'comparisonId',
+        foreignKey: 'itemId',
         onDelete: 'CASCADE'
       })
     }
