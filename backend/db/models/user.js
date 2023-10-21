@@ -49,7 +49,7 @@ module.exports = (sequelize, DataTypes) => {
       User.hasMany(models.Item, { foreignKey: 'userId' });
 
       // User has many ItemComparisons
-      User.hasMany(models.ItemComparisons, { foreignKey: 'userId' });
+      User.hasMany(models.ItemComparison, { foreignKey: 'userId' });
 
      User.hasOne(models.UserPrefs, {foreignKey: 'userId'})
     }
